@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      {% assign words = content | strip_html | strip_newlines | split: ' ' | size %}
+      {% assign minutes = words | plus: 199 | divided_by: 200 %}
+      <span>{{ minutes }} min read</span>
+    </div>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
+
+<nav class="post-nav" aria-label="Post">
+  <div class="post-nav-inner">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </div>
+</nav>
+

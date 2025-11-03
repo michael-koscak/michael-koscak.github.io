@@ -1,0 +1,60 @@
+# Site settings
+# Basic configuration for Jekyll on GitHub Pages
+
+# Site identity
+name: michael-koscak.github.io
+title: michael-koscak.github.io
+description: My Blog
+url: 
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
+excerpt_separator: "<!--more-->"
+
+# Timezone (optional, adjust if desired)
+# timezone: America/New_York
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Michael Koscak
+      # Ensure drafts in _posts can be hidden via `published: false`
+      published: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+
+# Exclude files from the site output
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# SEO
+seo:
+  name: michael-koscak.github.io
+  type: Blog
+
+# Feed
+feed:
+  path: feed.xml
+

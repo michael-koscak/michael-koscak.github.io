@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      {% include header.html %}
+    </header>
+    <main id="content" class="container" role="main">
+      {{ content }}
+    </main>
+    <footer class="site-footer" role="contentinfo">
+      {% include footer.html %}
+    </footer>
+  </body>
+  </html>
+

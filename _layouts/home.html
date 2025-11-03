@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<section class="post-list">
+  {% if site.posts and site.posts != empty %}
+    {% for post in site.posts %}
+      {% unless post.published == false %}
+      <article class="post-item">
+        <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          <span aria-hidden="true">·</span>
+          {% assign words = post.content | strip_html | strip_newlines | split: ' ' | size %}
+          {% assign minutes = words | plus: 199 | divided_by: 200 %}
+          <span>{{ minutes }} min read</span>
+        </div>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+      </article>
+      {% endunless %}
+    {% endfor %}
+  {% else %}
+    <p>No posts yet. Check back soon.</p>
+  {% endif %}
+</section>
+
