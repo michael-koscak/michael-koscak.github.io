@@ -1,11 +1,9 @@
 ---
 layout: post
-title: "Echo & Chamber Design & Architecture"
+title: "Echo & Chamber - How It Works"
 date: 2024-11-02
 published: true
 ---
-
-# Echo & Chamber - How It Works
 
 What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the Echo & Chamber project I work on that came from my research project at Georgia Tech.
 
@@ -168,7 +166,7 @@ Clustering is a pretty simple machine learning concept. We have some threshold o
 
 ### Story Prioritization
 
-I am not sure how to describe this algorithm in an interesting way but basically the goal is to try to use stories that were larger or closer to the top of the page on the Fox/MSNBC homepage so the letter is talking about top events. Check out this visual:
+In lieu of trying to explain a complex algorithm in paragraph form i fed the code to opus 4.1 and asked for a visual to explain the algorithm and it turned out pretty good actually:
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <svg viewBox="0 0 800 500" width="100%" height="auto" style="max-width: 800px; display: block; margin: 0 auto;">
