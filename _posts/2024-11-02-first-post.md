@@ -90,73 +90,75 @@ A simple example of this is a King and Queen. If you have the representation of 
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <svg viewBox="0 0 700 400" width="100%" height="auto" style="max-width: 700px; display: block; margin: 0 auto;">
-<defs>
-<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-<stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-</linearGradient>
-<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
-<stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
-</linearGradient>
-<filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-<feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
-</filter>
-<marker id="arrowhead1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="url(#grad1)" />
-</marker>
-<marker id="arrowhead2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="url(#grad2)" />
-</marker>
-</defs>
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowhead1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="url(#grad1)" />
+    </marker>
+    <marker id="arrowhead2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="url(#grad2)" />
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8e8e8" stroke-width="1"/>
+    </pattern>
+    <style>
+      .label { font-family: Arial, sans-serif; fill:#2d3748; font-weight:bold; 
+               paint-order: stroke; stroke: white; stroke-width:4; } /* text halo */
+      .small { font-weight:500; stroke-width:3; }
+    </style>
+  </defs>
 
-<!-- Grid background -->
-<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8e8e8" stroke-width="1"/>
-</pattern>
-<rect width="700" height="400" fill="url(#grid)" />
+  <!-- Grid -->
+  <rect width="700" height="400" fill="url(#grid)" />
 
-<!-- Axes -->
-<line x1="50" y1="350" x2="650" y2="350" stroke="#333" stroke-width="2" />
-<line x1="50" y1="50" x2="50" y2="350" stroke="#333" stroke-width="2" />
+  <!-- Axes -->
+  <line x1="50" y1="350" x2="650" y2="350" stroke="#333" stroke-width="2" />
+  <line x1="50" y1="50"  x2="50"  y2="350" stroke="#333" stroke-width="2" />
 
-<!-- Axis labels -->
-<text x="340" y="390" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Gender Dimension</text>
-<text x="20" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" transform="rotate(-90 20 200)">Royalty Dimension</text>
+  <!-- Axis labels -->
+  <text x="340" y="390" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Gender Dimension</text>
+  <text x="20" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" transform="rotate(-90 20 200)">Royalty Dimension</text>
 
-<!-- Points with enhanced styling -->
-<g filter="url(#shadow)">
-<!-- Man -->
-<circle cx="150" cy="280" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
-<text x="150" y="310" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">man</text>
+  <!-- 1) VECTORS FIRST (so they're behind everything) -->
+  <g opacity="0.8">
+    <line x1="150" y1="280" x2="345" y2="155" stroke="url(#grad1)" stroke-width="3" marker-end="url(#arrowhead1)" />
+    <line x1="200" y1="280" x2="395" y2="155" stroke="url(#grad2)" stroke-width="3" marker-end="url(#arrowhead2)" />
+  </g>
 
-<!-- King -->
-<circle cx="350" cy="150" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
-<text x="350" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">king</text>
+  <!-- Dotted helper lines -->
+  <line x1="150" y1="280" x2="200" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="5,5" opacity="0.5" />
+  <line x1="350" y1="150" x2="400" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,5" opacity="0.5" />
 
-<!-- Woman -->
-<circle cx="200" cy="280" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
-<text x="200" y="310" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">woman</text>
+  <!-- 2) POINTS ABOVE VECTORS -->
+  <g filter="url(#shadow)">
+    <circle cx="150" cy="280" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
+    <circle cx="350" cy="150" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
+    <circle cx="200" cy="280" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
+    <circle cx="400" cy="150" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
+  </g>
 
-<!-- Queen -->
-<circle cx="400" cy="150" r="8" fill="white" stroke="#4a5568" stroke-width="2" />
-<text x="400" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">queen</text>
-</g>
+  <!-- 3) ALL TEXT LAST (with halo) -->
+  <text x="150" y="310" class="label" font-size="16" text-anchor="middle">man</text>
+  <text x="350" y="130" class="label" font-size="16" text-anchor="middle">king</text>
+  <text x="200" y="310" class="label" font-size="16" text-anchor="middle">woman</text>
+  <text x="400" y="130" class="label" font-size="16" text-anchor="middle">queen</text>
 
-<!-- Vectors -->
-<line x1="150" y1="280" x2="345" y2="155" stroke="url(#grad1)" stroke-width="3" marker-end="url(#arrowhead1)" opacity="0.8" />
-<line x1="200" y1="280" x2="395" y2="155" stroke="url(#grad2)" stroke-width="3" marker-end="url(#arrowhead2)" opacity="0.8" />
+  <!-- Vector labels -->
+  <text x="240" y="210" class="label small" font-size="13" fill="#667eea" stroke="#fff">king − man</text>
+  <text x="315" y="210" class="label small" font-size="13" fill="#f5576c" stroke="#fff">+ woman = queen</text>
 
-<!-- Vector labels -->
-<text x="240" y="210" font-family="Arial, sans-serif" font-size="13" fill="#667eea" font-weight="500">king − man</text>
-<text x="290" y="210" font-family="Arial, sans-serif" font-size="13" fill="#f5576c" font-weight="500">+ woman = queen</text>
-
-<!-- Dotted helper lines -->
-<line x1="150" y1="280" x2="200" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="5,5" opacity="0.5" />
-<line x1="350" y1="150" x2="400" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,5" opacity="0.5" />
-
-<!-- Title -->
-<text x="350" y="30" font-family="Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="middle" font-weight="bold">Word Embeddings: Vector Arithmetic</text>
+  <!-- Title -->
+  <text x="350" y="30" class="label" font-size="18" text-anchor="middle">Word Embeddings: Vector Arithmetic</text>
 </svg>
 </div>
 
