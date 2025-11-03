@@ -60,80 +60,153 @@ The project has 3 main components:
 3. **Editor + Publishing Flow**
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-<svg viewBox="0 0 1000 480" width="100%" height="auto" style="max-width: 900px; display:block; margin:0 auto;">
+<svg viewBox="0 0 1000 500" width="100%" height="auto" style="max-width: 900px; display:block; margin:0 auto;">
 <defs>
-<linearGradient id="crawlerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-<stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
-</linearGradient>
-<linearGradient id="processorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#74c0fc;stop-opacity:1" />
-<stop offset="100%" style="stop-color:#4dabf7;stop-opacity:1" />
-</linearGradient>
-<linearGradient id="editorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#63e6be;stop-opacity:1" />
-<stop offset="100%" style="stop-color:#20c997;stop-opacity:1" />
-</linearGradient>
-<filter id="dropShadow">
-<feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
-</filter>
-<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="#999" />
-</marker>
+  <!-- Echo & Chamber brand colors -->
+  <!-- Fox red -->
+  <linearGradient id="foxRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#B00020;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#7a0016;stop-opacity:1" />
+  </linearGradient>
+  <!-- MSNBC blue -->
+  <linearGradient id="msnbcBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#153471;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#0e244d;stop-opacity:1" />
+  </linearGradient>
+  <!-- Mixed red→blue for “handoff” feel -->
+  <linearGradient id="mixGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#B00020;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#153471;stop-opacity:1" />
+  </linearGradient>
+
+  <filter id="dropShadow">
+    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+  </filter>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a8a8a" />
+  </marker>
 </defs>
 
 <!-- Title -->
-<text x="500" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2d3748" text-anchor="middle">Echo & Chamber System Architecture</text>
+<text x="500" y="36" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2d3748" text-anchor="middle">
+  Echo & Chamber System Architecture
+</text>
+
+<!-- Legend (Fox / MSNBC) -->
+<g>
+  <rect x="760" y="50" width="14" height="14" rx="3" fill="url(#foxRedGrad)"></rect>
+  <text x="780" y="61" font-family="Arial, sans-serif" font-size="12" fill="#495057">Fox (Red)</text>
+  <rect x="860" y="50" width="14" height="14" rx="3" fill="url(#msnbcBlueGrad)"></rect>
+  <text x="880" y="61" font-family="Arial, sans-serif" font-size="12" fill="#495057">MSNBC (Blue)</text>
+</g>
+
+<!-- Sources row: Fox / MSNBC -->
+<g filter="url(#dropShadow)">
+  <rect x="80" y="85" width="180" height="56" rx="10" fill="url(#foxRedGrad)"></rect>
+  <text x="170" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+    foxnews.com
+  </text>
+
+  <rect x="280" y="85" width="180" height="56" rx="10" fill="url(#msnbcBlueGrad)"></rect>
+  <text x="370" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+    msnbc.com
+  </text>
+</g>
+
+<!-- Connector to Crawler -->
+<line x1="260" y1="113" x2="350" y2="160" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)" />
+<line x1="370" y1="141" x2="350" y2="160" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)" />
 
 <!-- Crawler -->
 <g filter="url(#dropShadow)">
-<rect x="70" y="100" width="260" height="200" rx="12" fill="url(#crawlerGrad)" />
-<text x="200" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Crawler</text>
-<text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Hourly Cloud Function</text>
-<text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Fetches top 20 articles</text>
-<text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">from Fox & MSNBC</text>
-<rect x="130" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
-<text x="200" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Saves to GCP Bucket</text>
+  <rect x="320" y="160" width="300" height="120" rx="14" fill="url(#mixGrad)"></rect>
+  <text x="470" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
+    Crawler
+  </text>
+  <text x="470" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Cloud Function (hourly) + Scheduler
+  </text>
+  <text x="470" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Fetch top 20 / snapshot HTML + metadata
+  </text>
+  <rect x="395" y="235" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
+  <text x="470" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
+    Save to GCS (raw)
+  </text>
 </g>
+
+<!-- Arrow to Processor -->
+<line x1="620" y1="220" x2="690" y2="220" stroke="#8a8a8a" stroke-width="2.5" marker-end="url(#arrow)" />
 
 <!-- Processor -->
 <g filter="url(#dropShadow)">
-<rect x="370" y="100" width="260" height="200" rx="12" fill="url(#processorGrad)" />
-<text x="500" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Processor</text>
-<text x="500" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Nightly Cloud Run Job</text>
-<text x="500" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Embeds → Clusters →</text>
-<text x="500" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Summarizes w/ Anthropic</text>
-<rect x="430" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
-<text x="500" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Outputs JSON Results</text>
+  <rect x="690" y="160" width="260" height="210" rx="14" fill="url(#msnbcBlueGrad)"></rect>
+  <text x="820" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
+    Processor (Generator)
+  </text>
+  <text x="820" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Nightly job (Cloud Run)
+  </text>
+  <text x="820" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Embeddings → Clustering → Prioritization
+  </text>
+  <text x="820" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Summaries via Anthropic (Sonnet)
+  </text>
+  <rect x="745" y="255" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
+  <text x="820" y="276" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
+    JSON Results → GCS
+  </text>
 </g>
 
-<!-- Editor -->
+<!-- Arrow to Editor (down-left for nice flow) -->
+<line x1="780" y1="370" x2="600" y2="370" stroke="#8a8a8a" stroke-width="2.5" marker-end="url(#arrow)" />
+
+<!-- Editor + Publishing -->
 <g filter="url(#dropShadow)">
-<rect x="670" y="100" width="260" height="200" rx="12" fill="url(#editorGrad)" />
-<text x="800" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Editor + Publishing</text>
-<text x="800" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Custom UI (Serverless)</text>
-<text x="800" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Manual review & tweaks</text>
-<text x="800" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Copied into Beehiiv</text>
-<rect x="730" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
-<text x="800" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Publishes Daily Issue</text>
+  <rect x="260" y="320" width="300" height="120" rx="14" fill="url(#foxRedGrad)"></rect>
+  <text x="410" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
+    Editor + Publishing
+  </text>
+  <text x="410" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Serverless UI (manual tweaks)
+  </text>
+  <text x="410" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+    Copy final HTML → Beehiiv
+  </text>
+  <rect x="335" y="395" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
+  <text x="410" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
+    Daily Issue Published
+  </text>
 </g>
 
-<!-- Data Flow Arrows -->
-<line x1="330" y1="200" x2="370" y2="200" stroke="#999" stroke-width="2.5" marker-end="url(#arrow)" />
-<line x1="630" y1="200" x2="670" y2="200" stroke="#999" stroke-width="2.5" marker-end="url(#arrow)" />
+<!-- Cloud/service footers -->
+<g opacity="0.9">
+  <ellipse cx="190" cy="268" rx="70" ry="26" fill="#f1f3f5" />
+  <text x="190" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
+    GCS (raw snapshots)
+  </text>
 
-<!-- Cloud elements -->
-<g opacity="0.85">
-<ellipse cx="200" cy="350" rx="60" ry="25" fill="#f1f3f5" />
-<ellipse cx="500" cy="350" rx="60" ry="25" fill="#f1f3f5" />
-<ellipse cx="800" cy="350" rx="60" ry="25" fill="#f1f3f5" />
-<text x="200" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">GCP Storage</text>
-<text x="500" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">Cloud Run / Functions</text>
-<text x="800" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">Beehiiv Platform</text>
+  <ellipse cx="650" cy="115" rx="90" ry="26" fill="#f1f3f5" />
+  <text x="650" y="119" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
+    Cloud Functions + Scheduler
+  </text>
+
+  <ellipse cx="820" cy="315" rx="95" ry="26" fill="#f1f3f5" />
+  <text x="820" y="319" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
+    Cloud Run (nightly)
+  </text>
+
+  <ellipse cx="590" cy="445" rx="85" ry="26" fill="#f1f3f5" />
+  <text x="590" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
+    Beehiiv (manual send)
+  </text>
 </g>
 
-<!-- Footer Caption -->
-<text x="500" y="430" font-family="Arial, sans-serif" font-size="13" fill="#868e96" text-anchor="middle">Hourly → Nightly → Manual Review → Published Newsletter</text>
+<!-- Flow caption -->
+<text x="500" y="474" font-family="Arial, sans-serif" font-size="13" fill="#868e96" text-anchor="middle">
+  Hourly ingest → Nightly generation → Manual review → Publish
+</text>
 </svg>
 </div>
 
