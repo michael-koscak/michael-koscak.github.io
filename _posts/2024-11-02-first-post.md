@@ -59,165 +59,13 @@ The project has 3 main components:
 2. **Processor (Generator)**
 3. **Editor + Publishing Flow**
 
-<div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-<svg viewBox="0 0 1000 500" width="100%" height="auto" style="max-width: 900px; display:block; margin:0 auto;">
-<defs>
-  <!-- Echo & Chamber brand colors -->
-  <!-- Fox red -->
-  <linearGradient id="foxRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" style="stop-color:#B00020;stop-opacity:1" />
-    <stop offset="100%" style="stop-color:#7a0016;stop-opacity:1" />
-  </linearGradient>
-  <!-- MSNBC blue -->
-  <linearGradient id="msnbcBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" style="stop-color:#153471;stop-opacity:1" />
-    <stop offset="100%" style="stop-color:#0e244d;stop-opacity:1" />
-  </linearGradient>
-  <!-- Mixed red→blue for “handoff” feel -->
-  <linearGradient id="mixGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" style="stop-color:#B00020;stop-opacity:1" />
-    <stop offset="100%" style="stop-color:#153471;stop-opacity:1" />
-  </linearGradient>
-
-  <filter id="dropShadow">
-    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
-  </filter>
-  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-    <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a8a8a" />
-  </marker>
-</defs>
-
-<!-- Title -->
-<text x="500" y="36" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2d3748" text-anchor="middle">
-  Echo & Chamber System Architecture
-</text>
-
-<!-- Legend (Fox / MSNBC) -->
-<g>
-  <rect x="760" y="50" width="14" height="14" rx="3" fill="url(#foxRedGrad)"></rect>
-  <text x="780" y="61" font-family="Arial, sans-serif" font-size="12" fill="#495057">Fox (Red)</text>
-  <rect x="860" y="50" width="14" height="14" rx="3" fill="url(#msnbcBlueGrad)"></rect>
-  <text x="880" y="61" font-family="Arial, sans-serif" font-size="12" fill="#495057">MSNBC (Blue)</text>
-</g>
-
-<!-- Sources row: Fox / MSNBC -->
-<g filter="url(#dropShadow)">
-  <rect x="80" y="85" width="180" height="56" rx="10" fill="url(#foxRedGrad)"></rect>
-  <text x="170" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
-    foxnews.com
-  </text>
-
-  <rect x="280" y="85" width="180" height="56" rx="10" fill="url(#msnbcBlueGrad)"></rect>
-  <text x="370" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
-    msnbc.com
-  </text>
-</g>
-
-<!-- Connector to Crawler -->
-<line x1="260" y1="113" x2="350" y2="160" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)" />
-<line x1="370" y1="141" x2="350" y2="160" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)" />
-
-<!-- Crawler -->
-<g filter="url(#dropShadow)">
-  <rect x="320" y="160" width="300" height="120" rx="14" fill="url(#mixGrad)"></rect>
-  <text x="470" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
-    Crawler
-  </text>
-  <text x="470" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Cloud Function (hourly) + Scheduler
-  </text>
-  <text x="470" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Fetch top 20 / snapshot HTML + metadata
-  </text>
-  <rect x="395" y="235" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
-  <text x="470" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
-    Save to GCS (raw)
-  </text>
-</g>
-
-<!-- Arrow to Processor -->
-<line x1="620" y1="220" x2="690" y2="220" stroke="#8a8a8a" stroke-width="2.5" marker-end="url(#arrow)" />
-
-<!-- Processor -->
-<g filter="url(#dropShadow)">
-  <rect x="690" y="160" width="260" height="210" rx="14" fill="url(#msnbcBlueGrad)"></rect>
-  <text x="820" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
-    Processor (Generator)
-  </text>
-  <text x="820" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Nightly job (Cloud Run)
-  </text>
-  <text x="820" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Embeddings → Clustering → Prioritization
-  </text>
-  <text x="820" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Summaries via Anthropic (Sonnet)
-  </text>
-  <rect x="745" y="255" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
-  <text x="820" y="276" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
-    JSON Results → GCS
-  </text>
-</g>
-
-<!-- Arrow to Editor (down-left for nice flow) -->
-<line x1="780" y1="370" x2="600" y2="370" stroke="#8a8a8a" stroke-width="2.5" marker-end="url(#arrow)" />
-
-<!-- Editor + Publishing -->
-<g filter="url(#dropShadow)">
-  <rect x="260" y="320" width="300" height="120" rx="14" fill="url(#foxRedGrad)"></rect>
-  <text x="410" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">
-    Editor + Publishing
-  </text>
-  <text x="410" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Serverless UI (manual tweaks)
-  </text>
-  <text x="410" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
-    Copy final HTML → Beehiiv
-  </text>
-  <rect x="335" y="395" width="150" height="34" rx="6" fill="white" opacity="0.9"></rect>
-  <text x="410" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">
-    Daily Issue Published
-  </text>
-</g>
-
-<!-- Cloud/service footers -->
-<g opacity="0.9">
-  <ellipse cx="190" cy="268" rx="70" ry="26" fill="#f1f3f5" />
-  <text x="190" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
-    GCS (raw snapshots)
-  </text>
-
-  <ellipse cx="650" cy="115" rx="90" ry="26" fill="#f1f3f5" />
-  <text x="650" y="119" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
-    Cloud Functions + Scheduler
-  </text>
-
-  <ellipse cx="820" cy="315" rx="95" ry="26" fill="#f1f3f5" />
-  <text x="820" y="319" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
-    Cloud Run (nightly)
-  </text>
-
-  <ellipse cx="590" cy="445" rx="85" ry="26" fill="#f1f3f5" />
-  <text x="590" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">
-    Beehiiv (manual send)
-  </text>
-</g>
-
-<!-- Flow caption -->
-<text x="500" y="474" font-family="Arial, sans-serif" font-size="13" fill="#868e96" text-anchor="middle">
-  Hourly ingest → Nightly generation → Manual review → Publish
-</text>
-</svg>
-</div>
-
-
 ---
 
 ## Part 1: Crawler
 
 The crawler is relatively straightforward, using python I read the homepage of each Fox News and MSNBC hourly and index the top 20 articles. The idea here is that from a content perspective I am only interested in "top stories", and by creating an hourly index I can track the story prominence and also how long it is at the top of their page. For each of the top 20 I copy the content into my index which can then be analyzed by the processor.
 
-I built this using Cloud Functions in GCP triggered by a scheduler, and everything is saved to Cloud Storage buckets. I was surprised at how cost-efficient these services are when used at small scale, for hobby projects serverless is so nice. I did also try using actual databases but the costs were a lot higher because you need continually running compute, the file storage worked for me and is dirt cheap.
+I built this using Cloud Functions in GCP triggered by a scheduler, and everything is saved to Cloud Storage buckets. I was surprised at how cost-efficient these services are when used at small scale, for hobby projects serverless is awesome. I did also try using actual databases but the costs were a lot higher because you need continually running compute, the file storage worked for me and is dirt cheap.
 
 The crawler is its own code repo and overall I haven't had much issue with the data collection. So, at this point I've collected an hourly snapshot of the top stories being posted with a prominence ranking, we are now ready to process the information.
 
@@ -234,7 +82,7 @@ The processor application does the bulk of the lifting on the project. It is for
 
 ### Article Embeddings
 
-Most people meet AI through LLMs which are considered encoder/decoder models. AI is all based around math which essentially takes your input, turns it to numbers (encoder), processes it, and then outputs the response (decoder). For matching headlines, we only need the encoder: it turns text into a vector of numbers (an "embedding") that captures meaning. What happens is similar texts end up as nearby vectors, so we can compare them using math.
+Most people use AI through LLMs which are considered encoder/decoder models. AI is all based around math which essentially takes your input, turns it to numbers (encoder), processes it, and then outputs the response (decoder). With our goal being to match stories by topic, we only need the encoder: it turns text into a vector of numbers (an "embedding") that captures meaning. What happens is similar texts end up as nearby vectors, so we can compare them using math.
 
 A simple example of this is a King and Queen. If you have the representation of King and subtract the idea of "man", then add the idea of "woman", in the vector space it winds up roughly putting you at queen. See below for a visual:
 
@@ -318,7 +166,7 @@ Clustering is a pretty simple machine learning concept. We have some threshold o
 
 ### Story Prioritization
 
-In lieu of trying to explain a complex algorithm in paragraph form i fed the code to opus 4.1 and asked for a visual to explain the algorithm and it turned out pretty good actually:
+In lieu of trying to explain a complex algorithm in paragraph form I fed the code to Opus 4.1 and asked for a visual to explain the algorithm and it turned out good enough:
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <svg viewBox="0 0 800 500" width="100%" height="auto" style="max-width: 800px; display: block; margin: 0 auto;">
@@ -525,6 +373,11 @@ function showPrompt(type) {
 - Total time: **10–15 minutes**
 - Designed to feel fun, not like work.
 
-Mike to update, ignore for now.
+Alright so now we have a newsletter that loads in my brand assets.  The generator usually gets a B+ but needs manual review.  So I built a UI
+
+![Screenshot of the Editor UI](/assets/images/echo-editor.png)
+
+*The custom editor UI used for reviewing and publishing stories.*
+
 
 ---
