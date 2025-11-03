@@ -363,21 +363,13 @@ function showPrompt(type) {
 
 ## Part 3: Editing + Publishing
 
-- Built a **custom editor** for editing the final HTML.
-  - Not raw HTML—editor supports quick changes to layout/headlines.
-- Beehiv publishing step is **manual** (due to API limitations on non-enterprise plans).
-- Daily routine:
-  - 8 PM: Generate newsletter
-  - Quick read-through to catch mismatches (1–2 max usually)
-  - Paste into Beehiv and send
-- Total time: **10–15 minutes**
-- Designed to feel fun, not like work.
-
-Alright so now we have a newsletter that loads in my brand assets.  The generator usually gets a B+ but needs manual review.  So I built a UI
+Alright so now we have a newsletter that loads in my brand assets.  The generator usually gets a B+ but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
 
 ![Screenshot of the Editor UI](/assets/images/echo-editor.png)
-
 *The custom editor UI used for reviewing and publishing stories.*
 
+It's pretty nice and overall I enjoy reading the daily summary so it doesn't feel like a chore and is just a part of my night routine.  Typically it will match 1-2 stories that really don't have to do with eachother so I'll remove those and then send it out.
+
+My publishing platform is Beehiiv which overall has been great except they don't offer an API to publish the letter without an enterprise agreement.  So the last step is I hop through their web UI and copy paste my letter to schedule for the following morning.  Overall it takes about 10 minutes to read the letter and 5 minutes to schedule the send.
 
 ---
