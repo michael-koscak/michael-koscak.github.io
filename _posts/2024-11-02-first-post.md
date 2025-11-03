@@ -7,7 +7,7 @@ published: true
 
 What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.
 
-![E&C Logo](/assets/images/logo.svg)
+![E&C Logo](/assets/images/echo-chamber-logo.svg)
 
 <div style="background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 30px 0;">
 <h3 style="margin-top: 0; color: #2c3e50;">Table of Contents</h3>
