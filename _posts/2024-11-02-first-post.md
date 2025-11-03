@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Hello World: Starting Fresh"
+title: "Echo & Chamber Design & Architecture"
 date: 2024-11-02
 published: true
 ---
 
-# Echo & Chamber Project Notes
+# Echo & Chamber - How It Works
 
 ## Project Overview
 
@@ -16,6 +16,12 @@ published: true
 - Reader intent: Stay informed and entertained by seeing ideological spin from both sides.
 - Personal context: User reads WSJ but wanted a lightweight way to glance at the extremes.
 
+Hi, I am Mike, thanks for reading my first blog post.  I wanted a place to talk about some of the tech stuff and other things I work on so decided to create a blog to post about it.  This post is a summary of the Echo & Chamber project I work on that came from my research project at Georgia Tech.  
+
+Echo & Chamber in its current form provides a daily comparison of how Fox News and MSNBC cover the same stories.  I personally enjoy getting most of my news from the Wall Street Journal (my happy place is reading it in the sauna at my gym), I also enjoy Morning Brew.  I believe the highly partisan news outlets are bad, however, many people consume them and I found myself skimming them often to see how each outlet reported the same topic.  I created Echo & Chamber primarily to automate that process for myself in a format that matched Morning Brew.  
+
+At the time of writing this blog post the copy on echoandchamber.com is more general Left/Right "Break out of your echo chamber", but I am thinking I will change it to be more specific to Fox/MSNBC.  From a marketing perspective I am not sure telling people they are in an echo chamber is effective, I think instead I need marketing more centered around being interesting.  Fox News and MSNBC tend to call eachother the boogeyman, liberal people hate Fox News, conservative people hate MSNBC, but I am finding most people regardless of political lean do think the comparison is interesting.
+
 ---
 
 ## Connection to Georgia Tech Project
@@ -23,6 +29,8 @@ published: true
 - Originally inspired by a Georgia Tech research project on **misinformation spread**.
 - That project used **AI embeddings** and classic ML to model how topics evolved online.
 - Echo & Chamber shares the *mission*, but is separate code-wise—more of a solo spinoff.
+
+At Georgia Tech I took an "internet research" course that was about general monitoring of the internet, not just on content but also on hosting information and technical aspects.  The project we centered on was tracking the spread of "misinformation".  I enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze the hosting attributes to see if there were patterns in hosting about the same topic to identify malicious actors.  During my time at GT in most courses AI coding was cheating and given how valuable these tools are I wanted to try them more in depth after graduating.  Cursor had a free student license and seemed to be the main player so I used that.
 
 ---
 
@@ -34,6 +42,8 @@ published: true
   - Max **15 minutes/day**
   - Minimal costs (GCP cost-conscious, no DB usage)
 - Treat it like a creative outlet, not a chore.
+
+My main goal with this project was/is to learn and get experience with tech I don't normally play with.  This included building something complex with Cursor and also deploying multiple connected services to GCP.  I needed it to be easy to operate once I built it, the goal being that the scraping of Fox and MSNBC is automated and I can just review/publish the newsletter.  AI has it's problems but the current models are very, very good at summarizing medium length articles.  This leads to hallucination not being a problem because all context is contained in each LLM call.  It also seemed like a fun way to think through a marketing exercise in how to attract subscribers.
 
 ---
 
@@ -55,6 +65,10 @@ The project has 3 main components:
 - Saves raw content to **Google Cloud Storage** (not a database).
 - Storage structure = low-cost, file-based archive of daily news data.
 
+The crawler is relatively straightforward, using python I read the homepage of each Fox News and MSNBC hourly and index the top 20 articles.  The idea here is that from a content perspective I am only interested in "top stories", and by creating an hourly index I can track the story prominence and also how long it is at the top of their page.  For each of the top 20 I copy the content into my index which can then be analyzed by the processor.
+
+I built this using Cloud Functions in GCP triggered by a scheduler
+
 ---
 
 ## Part 2: Processor
@@ -70,6 +84,8 @@ The project has 3 main components:
   - Includes branding and layout for fast publishing.
 - Optional future idea: use **React components** for visual explanations (e.g. similarity heatmaps).
 - Might want to explain embeddings later in **non-technical terms** for readers.
+
+The processor application does the bulk of the
 
 ### Embeddings, briefly
 
