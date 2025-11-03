@@ -7,12 +7,6 @@ published: true
 
 What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the Echo & Chamber project I work on that came from my research project at Georgia Tech.
 
-## Project Overview
-
-Echo & Chamber in its current form gives a daily side-by-side look at how Fox News and MSNBC cover the same stories. For context, I'm a Wall Street Journal person (my happy place is reading it in a sauna), & I also like Morning Brew. I generally skip partisan cable news, but a ton of people watch it, and it has a material impact on political climate. So Echo & Chamber started as a way for me to quickly see how each side frames the same event. Not to doomscroll or argue, but to understand the lens other people are looking through.
-
-At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to something more specific, like a Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think the messaging should lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman. Liberals hate Fox, conservatives hate MSNBC. But what I've found is that, regardless of political lean, people still find the comparison genuinely interesting.
-
 <div style="background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 30px 0;">
 <h3 style="margin-top: 0; color: #2c3e50;">Table of Contents</h3>
 <ol>
@@ -32,6 +26,12 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 <li><a href="#part-3-editing--publishing">Part 3: Editing + Publishing</a></li>
 </ol>
 </div>
+
+## Project Overview
+
+Echo & Chamber in its current form gives a daily side-by-side look at how Fox News and MSNBC cover the same stories. For context, I'm a Wall Street Journal person (my happy place is reading it in a sauna), & I also like Morning Brew. I generally skip partisan cable news, but a ton of people watch it, and it has a material impact on political climate. So Echo & Chamber started as a way for me to quickly see how each side frames the same event. Not to doomscroll or argue, but to understand the lens other people are looking through.
+
+At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to something more specific, like a Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think the messaging should lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman. Liberals hate Fox, conservatives hate MSNBC. But what I've found is that, regardless of political lean, people still find the comparison genuinely interesting.
 
 ---
 
