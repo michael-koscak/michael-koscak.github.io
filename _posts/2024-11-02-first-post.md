@@ -39,9 +39,9 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 
 ## Connection to Georgia Tech Project
 
-At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective, including hosting information. Our project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
+At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective, including hosting information. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
 
-During my time at GT, most courses considered AI coding tools to be cheating. I think people not in the computer science world might be surprised that a CS degree is equal parts math and there is a lot that does not directly translate to actual software engineering. In the program I learned a **lot** about the math of machine learning / neural networks & research but actually very little about how to use the new AI coding tools that are coming out. So for me, I had this political news aggregator idea & I wanted to learn about coding with AI, there was a free student license for Cursor, the stars seemed to align so I went for it on the idea.
+During my time at GT, most courses considered AI coding tools to be cheating. I think people not in the computer science world might be surprised that a CS degree is equal parts math and there is a lot that does not directly translate to actual software engineering. In the program I learned a **lot** about the math of machine learning / neural networks but actually very little about how to use the new AI coding tools that are coming out. So for me, I had this political news aggregator idea & I wanted to learn about coding with AI, there was a free student license for Cursor, the stars seemed to align so I went for it on the idea.
 
 ---
 
@@ -82,7 +82,7 @@ The processor application does the bulk of the lifting on the project. It is for
 3. Prioritizes the topic matches based on what had the most prominence on the homepage for the longest time.
 4. Using the top matches from step 3, passes each story pair to the Anthropic API to generate the event summary and framing comparison (uses Sonnet class models).
 
-### Article Embeddings
+### 2.1) Article Embeddings
 
 Most people use AI through LLMs which are considered encoder/decoder models. AI is all based around math which essentially takes your input, turns it to numbers (encoder), processes it, and then outputs the response (decoder). With our goal being to match stories by topic, we only need the encoder: it turns text into a vector of numbers (an "embedding") that captures meaning. What happens is similar texts end up as nearby vectors, so we can compare them using math.
 
@@ -162,11 +162,11 @@ A simple example of this is a King and Queen. If you have the representation of 
 
 The open source [Sentence Transformer model](https://huggingface.co/sentence-transformers) allows us to do this easily.
 
-### Clustering
+### 2.2) Clustering
 
 Clustering is a pretty simple machine learning concept. We have some threshold of "similarity score" and group our embeddings from step 1. If the embedding distance is close enough together, we say the stories are about the same topic. This drives the quality of the match and mostly just took some tuning of the score threshold - in machine learning we call this a [hyperparameter](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)).
 
-### Story Prioritization
+### 2.3) Story Prioritization
 
 In lieu of trying to explain a complex algorithm in paragraph form I fed the code to Opus 4.1 and asked for a visual to explain the algorithm and it turned out good enough:
 
@@ -264,7 +264,7 @@ In lieu of trying to explain a complex algorithm in paragraph form I fed the cod
 </svg>
 </div>
 
-### Story Generation
+### 2.4) Story Generation
 
 At this point we have a handful of story pairs with the story headline, text and URL for both articles. I pass this to the Anthropic API and use Sonnet to generate the summary. I have this flip back and forth so Fox/MSNBC change which is first so there are two prompts. I change this from time to time but at the time of this blog here are the prompts:
 
