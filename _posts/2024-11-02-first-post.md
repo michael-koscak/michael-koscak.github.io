@@ -31,7 +31,7 @@ What's up - thanks for reading my first blog post. I wanted a place to talk abou
 
 Echo & Chamber in its current form gives a daily side-by-side look at how Fox News and MSNBC cover the same stories. For context, I'm a Wall Street Journal person (my happy place is reading it in a sauna), & I also like Morning Brew. I generally skip partisan cable news, but a ton of people watch it, and it has a material impact on political climate. So Echo & Chamber started as a way for me to quickly see how each side frames the same event. Not to doomscroll or argue, but to understand the lens other people are looking through.
 
-At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to something more specific, like a Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think the messaging should lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman. Liberals hate Fox, conservatives hate MSNBC. But what I've found is that, regardless of political lean, people still find the comparison genuinely interesting.
+At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to a more specific Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think the messaging should lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman. Liberals hate Fox, conservatives hate MSNBC. But what I've found is that, regardless of political lean, people still find the comparison genuinely interesting.
 
 ---
 
@@ -47,7 +47,7 @@ During my time at GT, most courses considered AI coding tools to be cheating. I 
 
 My main goal with this project was to learn and get experience with tech I don't normally play with. This included building something complex with Cursor and also deploying multiple connected services to GCP. I needed it to be easy to operate once I built it, the goal being that the scraping of Fox and MSNBC is automated and I can just review/publish the newsletter. AI has its problems but the current models are very, very good at summarizing medium length articles. This leads to hallucination not being a problem because all context is contained in each LLM call. It also seemed like a fun way to think through a marketing exercise in how to attract subscribers.
 
-In terms of learning goals I'd say the project has already been a success. I am planning to write a future blog post about using cursor and my experience AI coding past a POC. If I could redo the build on this project no doubt it would be way cleaner & better, but I couldn't have figured that out without actually doing it. It has also been interesting to go deeper on using GCP and cost management (everything with this runs me about $20 a month).
+In terms of learning goals I'd say the project has already been a success. I am planning to write a future blog post about using Cursor and my experience AI coding past a POC. If I could redo the build on this project no doubt it would be way cleaner & better, but I couldn't have figured that out without actually doing it. It has also been interesting to go deeper on using GCP and designing with cost management top of mind (everything with this runs me about $20 a month).
 
 ---
 
@@ -58,6 +58,85 @@ The project has 3 main components:
 1. **Crawler**
 2. **Processor (Generator)**
 3. **Editor + Publishing Flow**
+
+<div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+<svg viewBox="0 0 1000 480" width="100%" height="auto" style="max-width: 900px; display:block; margin:0 auto;">
+<defs>
+<linearGradient id="crawlerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="processorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#74c0fc;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#4dabf7;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="editorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#63e6be;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#20c997;stop-opacity:1" />
+</linearGradient>
+<filter id="dropShadow">
+<feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+</filter>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#999" />
+</marker>
+</defs>
+
+<!-- Title -->
+<text x="500" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2d3748" text-anchor="middle">Echo & Chamber System Architecture</text>
+
+<!-- Crawler -->
+<g filter="url(#dropShadow)">
+<rect x="70" y="100" width="260" height="200" rx="12" fill="url(#crawlerGrad)" />
+<text x="200" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Crawler</text>
+<text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Hourly Cloud Function</text>
+<text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Fetches top 20 articles</text>
+<text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">from Fox & MSNBC</text>
+<rect x="130" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
+<text x="200" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Saves to GCP Bucket</text>
+</g>
+
+<!-- Processor -->
+<g filter="url(#dropShadow)">
+<rect x="370" y="100" width="260" height="200" rx="12" fill="url(#processorGrad)" />
+<text x="500" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Processor</text>
+<text x="500" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Nightly Cloud Run Job</text>
+<text x="500" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Embeds → Clusters →</text>
+<text x="500" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Summarizes w/ Anthropic</text>
+<rect x="430" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
+<text x="500" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Outputs JSON Results</text>
+</g>
+
+<!-- Editor -->
+<g filter="url(#dropShadow)">
+<rect x="670" y="100" width="260" height="200" rx="12" fill="url(#editorGrad)" />
+<text x="800" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">Editor + Publishing</text>
+<text x="800" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Custom UI (Serverless)</text>
+<text x="800" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Manual review & tweaks</text>
+<text x="800" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">Copied into Beehiiv</text>
+<rect x="730" y="215" width="140" height="40" rx="6" fill="white" opacity="0.9" />
+<text x="800" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2d3748">Publishes Daily Issue</text>
+</g>
+
+<!-- Data Flow Arrows -->
+<line x1="330" y1="200" x2="370" y2="200" stroke="#999" stroke-width="2.5" marker-end="url(#arrow)" />
+<line x1="630" y1="200" x2="670" y2="200" stroke="#999" stroke-width="2.5" marker-end="url(#arrow)" />
+
+<!-- Cloud elements -->
+<g opacity="0.85">
+<ellipse cx="200" cy="350" rx="60" ry="25" fill="#f1f3f5" />
+<ellipse cx="500" cy="350" rx="60" ry="25" fill="#f1f3f5" />
+<ellipse cx="800" cy="350" rx="60" ry="25" fill="#f1f3f5" />
+<text x="200" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">GCP Storage</text>
+<text x="500" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">Cloud Run / Functions</text>
+<text x="800" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#495057">Beehiiv Platform</text>
+</g>
+
+<!-- Footer Caption -->
+<text x="500" y="430" font-family="Arial, sans-serif" font-size="13" fill="#868e96" text-anchor="middle">Hourly → Nightly → Manual Review → Published Newsletter</text>
+</svg>
+</div>
+
 
 ---
 
