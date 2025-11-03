@@ -2,7 +2,7 @@
 layout: post
 title: "Hello World: Starting Fresh"
 date: 2024-11-02
-published: false
+published: true
 ---
 
 Starting over can feel like an indulgence. It isn’t. It’s a discipline.
