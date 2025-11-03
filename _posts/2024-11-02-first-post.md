@@ -5,7 +5,7 @@ date: 2024-11-02
 published: true
 ---
 
-What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the Echo & Chamber project I work on that came from my research project at Georgia Tech.
+What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.
 
 ![E&C Logo](/assets/images/logo.svg)
 
@@ -84,7 +84,7 @@ The processor application does the bulk of the lifting on the project. It is for
 
 ### 2.1) Article Embeddings
 
-Most people use AI through LLMs which are considered encoder/decoder models. AI is all based around math which essentially takes your input, turns it to numbers (encoder), processes it, and then outputs the response (decoder). With our goal being to match stories by topic, we only need the encoder: it turns text into a vector of numbers (an "embedding") that captures meaning. What happens is similar texts end up as nearby vectors, so we can compare them using math.
+Most people use AI through LLMs which are considered encoder/decoder models. AI is all based around math which essentially takes your input, turns it to numbers (encoder), processes it, and then outputs the response (decoder). With our goal here being to match stories by topic, we only need the encoder: it turns text into a vector of numbers (an "embedding") that captures meaning. What happens is similar texts end up as nearby vectors, so we can compare them using math.
 
 A simple example of this is a King and Queen. If you have the representation of King and subtract the idea of "man", then add the idea of "woman", in the vector space it winds up roughly putting you at queen. See below for a visual:
 
@@ -168,7 +168,7 @@ Clustering is a pretty simple machine learning concept. We have some threshold o
 
 ### 2.3) Story Prioritization
 
-In lieu of trying to explain a complex algorithm in paragraph form I fed the code to Opus 4.1 and asked for a visual to explain the algorithm and it turned out good enough:
+So now we have story pairs about the same topic and we want to rank them by "top story".  In lieu of trying to explain a complex algorithm in paragraph form I fed the code to Opus 4.1 and asked for a visual to explain the algorithm and it turned out good enough:
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <svg viewBox="0 0 800 500" width="100%" height="auto" style="max-width: 800px; display: block; margin: 0 auto;">
@@ -365,7 +365,7 @@ function showPrompt(type) {
 
 ## Part 3: Editing + Publishing
 
-Alright so now we have a newsletter that loads in my brand assets.  The generator usually gets a B+ but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
+Alright so now we have a newsletter.  The generator usually gets a B+ but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
 
 ![Screenshot of the Editor UI](/assets/images/echo-editor.png)
 *The custom editor UI used for reviewing and publishing stories.*
