@@ -5,21 +5,85 @@ date: 2024-11-02
 published: true
 ---
 
-Starting over can feel like an indulgence. It isn’t. It’s a discipline.
+# Echo & Chamber Project Notes
 
-I’m rebuilding this space with fewer distractions—no banners, no widgets, no pop-ups—just words, a quiet rhythm, and room to think. The design is intentionally simple: generous margins, calm type, and a page that asks nothing more of you than to read.
+## Project Overview
 
-<!--more-->
+- Project: **Echo & Chamber**
+- Aggregates headlines from **Fox News** and **MSNBC** to compare how each covers top stories.
+- Inspired by similar comparison newsletters but designed to be shorter and more digestible (Morning Brew style).
+- Goal: Provide a daily snapshot showing how partisan media frame the same news differently.
+- Reader intent: Stay informed and entertained by seeing ideological spin from both sides.
+- Personal context: User reads WSJ but wanted a lightweight way to glance at the extremes.
 
-I’ve always admired places where writing comes first. The best sites feel like books: humble, honest, and just opinionated enough to have a point of view. This space aims for that—literary without being precious, practical without being dull.
+---
 
-Here’s the working philosophy:
+## Connection to Georgia Tech Project
 
-- Focus over filler.
-- Slower, better thinking.
-- Fewer steps between author and reader.
+- Originally inspired by a Georgia Tech research project on **misinformation spread**.
+- That project used **AI embeddings** and classic ML to model how topics evolved online.
+- Echo & Chamber shares the *mission*, but is separate code-wise—more of a solo spinoff.
 
-Posts here will be brief when brevity is enough, longer when the subject deserves it. I’ll favor clarity over cleverness and try to leave more silence between the lines.
+---
 
-Thanks for reading. Let’s keep it simple.
+## Personal Learning Goals
+
+- Learn **AI coding**, especially embedding-based similarity.
+- Gain hands-on experience with **Google Cloud Platform (GCP)**.
+- Keep it low-lift and **low-maintenance**:
+  - Max **15 minutes/day**
+  - Minimal costs (GCP cost-conscious, no DB usage)
+- Treat it like a creative outlet, not a chore.
+
+---
+
+## Architecture Overview
+
+The project has 3 main components:
+
+1. **Crawler**
+2. **Processor (Generator)**
+3. **Editor + Publishing Flow**
+
+---
+
+## Part 1: Crawler
+
+- Runs hourly.
+- Scrapes **top 20 stories** from Fox and MSNBC homepages.
+- Ranks stories based on visual prominence on the homepage.
+- Saves raw content to **Google Cloud Storage** (not a database).
+- Storage structure = low-cost, file-based archive of daily news data.
+
+---
+
+## Part 2: Processor
+
+- Uses **Sentence Transformers (Hugging Face)** for embeddings.
+- Matches stories based on **semantic similarity** and **homepage rank**.
+- Each day, creates:
+  - **Matched Pairs** (Fox–MSNBC overlap)
+  - **Blind Spots** (covered by one side only)
+- “Blind Spot” doesn’t mean totally absent—more about what gets *emphasized* or *ignored*.
+- Output is:
+  - Fully structured **HTML newsletter**
+  - Includes branding and layout for fast publishing.
+- Optional future idea: use **React components** for visual explanations (e.g. similarity heatmaps).
+- Might want to explain embeddings later in **non-technical terms** for readers.
+
+---
+
+## Part 3: Editing + Publishing
+
+- Built a **custom editor** for editing the final HTML.
+  - Not raw HTML—editor supports quick changes to layout/headlines.
+- Beehiv publishing step is **manual** (due to API limitations on non-enterprise plans).
+- Daily routine:
+  - 8 PM: Generate newsletter
+  - Quick read-through to catch mismatches (1–2 max usually)
+  - Paste into Beehiv and send
+- Total time: **10–15 minutes**
+- Designed to feel fun, not like work.
+
+---
 
