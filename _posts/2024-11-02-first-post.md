@@ -41,7 +41,7 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 
 At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
 
-![E&C Logo](/assets/images/firstpost/gt.svg)
+![Mike](/assets/images/firstpost/gt.png)
 
 During my time at GT, most courses considered AI coding tools to be cheating. I think people not in the computer science world might be surprised that a CS degree is equal parts math and there is a lot that does not directly translate to actual software engineering. In the program I learned a **lot** about the math of machine learning / neural networks but actually very little about how to use the new AI coding tools that are coming out. So for me, I had this political news aggregator idea & I wanted to learn about coding with AI, there was a free student license for Cursor, the stars seemed to align so I went for it on the idea.
 
