@@ -616,6 +616,14 @@ Alright so now we have a newsletter.  The generator usually is pretty good but n
 ![Screenshot of the Editor UI](/assets/images/firstpost/echo-editor.png)
 *The custom editor UI used for reviewing and publishing stories.*
 
+<p align="center">
+  <img src="/assets/images/firstpost/echo-editor.png" alt="Editor UI" width="400">
+  <span style="font-size: 0.9em; color: #666;">
+    Editor UI I built to easily modify the HTML
+  </span>
+</p>
+
+
 It's pretty nice and overall I enjoy reading the daily summary so it doesn't feel like a chore and is just a part of my night routine.  Typically it will match 1-2 stories that really don't have to do with eachother so I'll remove those and then send it out.
 
 My publishing platform is Beehiiv which overall has been great except they don't offer an API to publish the letter without an enterprise agreement.  So the last step is I hop through their web UI and copy paste my letter to schedule for the following morning.  Overall it takes about 10 minutes to read the letter and 5 minutes to schedule the send.
