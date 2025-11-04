@@ -407,8 +407,8 @@ Clustering is a pretty simple machine learning concept. We have some threshold o
 <text x="345" y="12" font-family="Arial, sans-serif" font-size="12" fill="#666">Matched Pair</text>
 </g>
 
-<!-- Explanation -->
-<text x="550" y="415" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Stories within the distance threshold are clustered as the same topic</text>
+<!-- Explanation (moved down to avoid overlap) -->
+<text x="400" y="430" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Stories within the distance threshold are clustered as the same topic</text>
 </svg>
 </div>
 
