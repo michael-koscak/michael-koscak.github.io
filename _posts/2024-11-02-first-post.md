@@ -301,6 +301,117 @@ The open source [Sentence Transformer model](https://huggingface.co/sentence-tra
 
 Clustering is a pretty simple machine learning concept. We have some threshold of "similarity score" and group our embeddings from step 1. If the embedding distance is close enough together, we say the stories are about the same topic. This drives the quality of the match and mostly just took some tuning of the score threshold - in machine learning we call this a [hyperparameter](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)).
 
+<div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<svg viewBox="0 0 800 450" width="100%" height="auto" style="max-width: 800px; display: block; margin: 0 auto;">
+<defs>
+<linearGradient id="clusterGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#667eea;stop-opacity:0.2" />
+<stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.2" />
+</linearGradient>
+<linearGradient id="clusterGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.2" />
+<stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.2" />
+</linearGradient>
+<linearGradient id="clusterGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.2" />
+<stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.2" />
+</linearGradient>
+<filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+</filter>
+</defs>
+
+<!-- Title -->
+<text x="400" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2d3748" text-anchor="middle">Story Clustering: Finding Similar Topics</text>
+
+<!-- Embedding space background -->
+<rect x="50" y="60" width="700" height="320" fill="#fafafa" stroke="#e0e0e0" stroke-width="1" rx="5" />
+<text x="400" y="85" font-family="Arial, sans-serif" font-size="14" fill="#868e96" text-anchor="middle">Embedding Space (simplified to 2D)</text>
+
+<!-- Cluster regions -->
+<ellipse cx="200" cy="200" rx="120" ry="90" fill="url(#clusterGrad1)" filter="url(#blur)" />
+<ellipse cx="400" cy="280" rx="110" ry="80" fill="url(#clusterGrad2)" filter="url(#blur)" />
+<ellipse cx="600" cy="180" rx="100" ry="85" fill="url(#clusterGrad3)" filter="url(#blur)" />
+
+<!-- Story points - Cluster 1: Election Coverage -->
+<circle cx="180" cy="180" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<text x="160" y="175" font-family="Arial, sans-serif" font-size="10" fill="#666">Fox</text>
+
+<circle cx="200" cy="190" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+<text x="220" y="195" font-family="Arial, sans-serif" font-size="10" fill="#666">MSNBC</text>
+
+<circle cx="170" cy="220" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="190" cy="230" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<circle cx="230" cy="200" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="240" cy="210" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<!-- Connection lines showing matches -->
+<line x1="180" y1="180" x2="200" y2="190" stroke="#667eea" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="170" y1="220" x2="190" y2="230" stroke="#667eea" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="230" y1="200" x2="240" y2="210" stroke="#667eea" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+
+<!-- Story points - Cluster 2: Economic News -->
+<circle cx="380" cy="270" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="390" cy="280" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<circle cx="420" cy="290" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="430" cy="300" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<circle cx="370" cy="310" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="380" cy="320" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<!-- Connection lines -->
+<line x1="380" y1="270" x2="390" y2="280" stroke="#f5576c" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="420" y1="290" x2="430" y2="300" stroke="#f5576c" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="370" y1="310" x2="380" y2="320" stroke="#f5576c" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+
+<!-- Story points - Cluster 3: International News -->
+<circle cx="580" cy="160" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="590" cy="170" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<circle cx="620" cy="180" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="630" cy="190" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<circle cx="570" cy="200" r="8" fill="#ee5a24" stroke="white" stroke-width="2" />
+<circle cx="580" cy="210" r="8" fill="#339af0" stroke="white" stroke-width="2" />
+
+<!-- Connection lines -->
+<line x1="580" y1="160" x2="590" y2="170" stroke="#00f2fe" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="620" y1="180" x2="630" y2="190" stroke="#00f2fe" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+<line x1="570" y1="200" x2="580" y2="210" stroke="#00f2fe" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2" />
+
+<!-- Cluster labels -->
+<text x="200" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#667eea" text-anchor="middle">Election Coverage</text>
+<text x="400" y="245" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f5576c" text-anchor="middle">Economic News</text>
+<text x="600" y="140" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00b4d8" text-anchor="middle">International</text>
+
+<!-- Distance indicator -->
+<g transform="translate(100, 320)">
+<line x1="0" y1="0" x2="40" y2="0" stroke="#666" stroke-width="1.5" />
+<circle cx="0" cy="0" r="3" fill="#666" />
+<circle cx="40" cy="0" r="3" fill="#666" />
+<text x="20" y="-5" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">distance</text>
+<text x="20" y="15" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">threshold</text>
+</g>
+
+<!-- Legend -->
+<g transform="translate(60, 400)">
+<rect x="0" y="0" width="15" height="15" rx="2" fill="#ee5a24" />
+<text x="20" y="12" font-family="Arial, sans-serif" font-size="12" fill="#666">Fox News Article</text>
+
+<rect x="150" y="0" width="15" height="15" rx="2" fill="#339af0" />
+<text x="170" y="12" font-family="Arial, sans-serif" font-size="12" fill="#666">MSNBC Article</text>
+
+<line x1="320" y1="7" x2="340" y2="7" stroke="#999" stroke-width="1.5" stroke-dasharray="2,2" />
+<text x="345" y="12" font-family="Arial, sans-serif" font-size="12" fill="#666">Matched Pair</text>
+</g>
+
+<!-- Explanation -->
+<text x="550" y="415" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Stories within the distance threshold are clustered as the same topic</text>
+</svg>
+</div>
+
 ### 2.3) Story Prioritization
 
 So now we have story pairs about the same topic and we want to rank them by "top story".  In lieu of trying to explain a complex algorithm in paragraph form I fed the code to Opus 4.1 and asked for a visual to explain the algorithm and it turned out good enough:
