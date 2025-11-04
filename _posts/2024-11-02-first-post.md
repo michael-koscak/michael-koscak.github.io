@@ -299,7 +299,7 @@ The open source [Sentence Transformer model](https://huggingface.co/sentence-tra
 
 ### 2.2) Clustering
 
-Clustering is a pretty simple machine learning concept. We have some threshold of "similarity score" and group our embeddings from step 1. If the embedding distance is close enough together, we say the stories are about the same topic. This drives the quality of the match and mostly just took some tuning of the score threshold - in machine learning we call this tuning a [hyperparameter](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)).
+Clustering is a pretty simple machine learning concept. We have some threshold of "similarity score" and group our embeddings from step 1. If the embedding distance is close enough together, we say the stories are about the same topic. This drives the quality of the match and mostly just took some tuning of the score threshold - in machine learning we call this tuning a [hyperparameter](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)).  We use this concept to pair the stories.
 
 <div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <svg viewBox="0 0 800 450" width="100%" height="auto" style="max-width: 800px; display: block; margin: 0 auto;">
