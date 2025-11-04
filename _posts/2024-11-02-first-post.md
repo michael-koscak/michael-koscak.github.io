@@ -35,7 +35,7 @@ What's up - thanks for reading my first blog post. I wanted a place to talk abou
 
 Echo & Chamber in its current form gives a daily side-by-side look at how Fox News and MSNBC cover the same stories. For context, I'm a Wall Street Journal person (my happy place is reading it in a sauna), & I also like Morning Brew. I generally skip partisan cable news, but a ton of people consume those brands, and it has a material impact on political perception. So Echo & Chamber started as a way for me to quickly see how each side frames the same event. Not to doomscroll or argue, but to understand the lens other people are looking through.
 
-At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to a more specific Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think it would be better to lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman, liberals hate Fox & conservatives hate MSNBC. But what I've found is that, regardless of political lean, people still find the comparison genuinely interesting.
+At the time of writing this post, the copy on echoandchamber.com still uses the broader "Left vs. Right, Break out of your echo chamber" framing. I'm thinking of changing that to a more specific Fox vs. MSNBC focus. From a marketing perspective, I'm not sure telling people they're in an echo chamber is the best approach. I think it would be better to lean more into curiosity and interest. Fox News and MSNBC often treat each other as the boogeyman, liberals hate Fox & conservatives hate MSNBC. But I'm finding that regardless of political lean people do find the Fox/MSNBC comparison an interesting way to stay up to date.
 
 ---
 
@@ -611,7 +611,7 @@ function showPrompt(type) {
 
 ## Part 3: Editing + Publishing
 
-Alright so now we have a newsletter.  The generator usually gets a B+ but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
+Alright so now we have a newsletter.  The generator usually is pretty good but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
 
 ![Screenshot of the Editor UI](/assets/images/firstpost/echo-editor.png)
 *The custom editor UI used for reviewing and publishing stories.*
