@@ -8,7 +8,7 @@ published: true
 What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.
 
 <p align="center">
-  <img src="/assets/images/firstpost/echo-chamber-logo.svg" alt="EC Logo" width="300">
+  <img src="/assets/images/firstpost/echo-chamber-logo.svg" alt="EC Logo" width="400">
 </p>
 
 <div style="background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 30px 0;">
@@ -44,8 +44,12 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
 
 <p align="center">
-  <img src="/assets/images/firstpost/gt.png" alt="Mike" width="200">
+  <img src="/assets/images/firstpost/gt.png" alt="Mike" width="200"><br>
+  <span style="font-size: 0.9em; color: #666;">
+    Graduation day at GT
+  </span>
 </p>
+
 
 
 During my time at GT, most courses considered AI coding tools to be cheating. I think people not in the computer science world might be surprised that a CS degree is equal parts math and there is a lot that does not directly translate to actual software engineering. In the program I learned a **lot** about the math of machine learning / neural networks but actually very little about how to use the new AI coding tools that are coming out. So for me, I had this political news aggregator idea & I wanted to learn about coding with AI, there was a free student license for Cursor, the stars seemed to align so I went for it on the idea.
