@@ -626,3 +626,9 @@ It's pretty nice and overall I enjoy reading the daily summary so it doesn't fee
 My publishing platform is Beehiiv which overall has been great except they don't offer an API to publish the letter without an enterprise agreement.  So the last step is I hop through their web UI and copy paste my letter to schedule for the following morning.  Overall it takes about 10 minutes to read the letter and 5 minutes to schedule the send.
 
 ---
+
+## Conclusion
+
+Overall this has been a fun project and I learned a lot, hopefully you enjoyed reading about it.  For my next post I plan to talk about some of what I learned using AI coding tools.  Could certainly have gone way deeper here but this is long enough as it is, thanks for reading!!
+
+- Mike
