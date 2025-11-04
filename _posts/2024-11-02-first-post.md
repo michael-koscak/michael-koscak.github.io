@@ -41,7 +41,7 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 
 ## Connection to Georgia Tech Project
 
-At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
+At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project my team did centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
 
 <p align="center">
   <img src="/assets/images/firstpost/gt.png" alt="Mike" width="250"><br>
