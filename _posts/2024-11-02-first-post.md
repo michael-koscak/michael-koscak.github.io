@@ -295,7 +295,7 @@ A simple example of this is a King and Queen. If you have the representation of 
 </svg>
 </div>
 
-The open source [Sentence Transformer model](https://huggingface.co/sentence-transformers) allows us to do this easily.
+The open source [Sentence Transformer model](https://huggingface.co/sentence-transformers) allows us to do this easily.  The example above scales from single words to full articles to compare similarity.
 
 ### 2.2) Clustering
 
