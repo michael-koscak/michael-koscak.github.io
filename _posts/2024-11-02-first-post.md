@@ -7,7 +7,7 @@ published: true
 
 What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.
 
-![E&C Logo](/assets/images/echo-chamber-logo.svg)
+![E&C Logo](/assets/images/firstpost/echo-chamber-logo.svg)
 
 <div style="background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 30px 0;">
 <h3 style="margin-top: 0; color: #2c3e50;">Table of Contents</h3>
@@ -40,6 +40,8 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 ## Connection to Georgia Tech Project
 
 At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
+
+![E&C Logo](/assets/images/firstpost/gt.svg)
 
 During my time at GT, most courses considered AI coding tools to be cheating. I think people not in the computer science world might be surprised that a CS degree is equal parts math and there is a lot that does not directly translate to actual software engineering. In the program I learned a **lot** about the math of machine learning / neural networks but actually very little about how to use the new AI coding tools that are coming out. So for me, I had this political news aggregator idea & I wanted to learn about coding with AI, there was a free student license for Cursor, the stars seemed to align so I went for it on the idea.
 
@@ -369,7 +371,7 @@ function showPrompt(type) {
 
 Alright so now we have a newsletter.  The generator usually gets a B+ but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
 
-![Screenshot of the Editor UI](/assets/images/echo-editor.png)
+![Screenshot of the Editor UI](/assets/images/firstpost/echo-editor.png)
 *The custom editor UI used for reviewing and publishing stories.*
 
 It's pretty nice and overall I enjoy reading the daily summary so it doesn't feel like a chore and is just a part of my night routine.  Typically it will match 1-2 stories that really don't have to do with eachother so I'll remove those and then send it out.
