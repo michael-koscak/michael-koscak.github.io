@@ -44,7 +44,7 @@ At the time of writing this post, the copy on echoandchamber.com still uses the 
 At Georgia Tech I took a course on [Internet Research](https://omscs.gatech.edu/cs-8803-o23-modern-internet-research-methods), which focused on monitoring the internet from both a content and technical perspective. The project centered on tracking the spread of misinformation. I really enjoyed it, we built a tool to track stories by topic and then used predictive ML to analyze hosting attributes, looking for patterns that could help identify malicious actors.
 
 <p align="center">
-  <img src="/assets/images/firstpost/gt.png" alt="Mike" width="200"><br>
+  <img src="/assets/images/firstpost/gt.png" alt="Mike" width="250"><br>
   <span style="font-size: 0.9em; color: #666;">
     Graduation day at GT
   </span>
@@ -71,6 +71,128 @@ The project has 3 main components:
 1. **Crawler**
 2. **Processor (Generator)**
 3. **Editor + Publishing Flow**
+
+<div style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<svg viewBox="0 0 900 500" width="100%" height="auto" style="max-width: 900px; display: block; margin: 0 auto;">
+<defs>
+<linearGradient id="gcpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="foxGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="msnbcGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#4dabf7;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#339af0;stop-opacity:1" />
+</linearGradient>
+<filter id="shadow2">
+<feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+</filter>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#666" />
+</marker>
+</defs>
+
+<!-- Title -->
+<text x="450" y="30" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2d3748" text-anchor="middle">Echo & Chamber Architecture</text>
+
+<!-- Phase 1: Crawler -->
+<g>
+<rect x="50" y="70" width="200" height="380" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" filter="url(#shadow2)" />
+<text x="150" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">1. CRAWLER</text>
+
+<!-- News sources -->
+<rect x="70" y="120" width="160" height="50" rx="5" fill="url(#foxGrad2)" />
+<text x="150" y="150" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold" text-anchor="middle">Fox News</text>
+
+<rect x="70" y="180" width="160" height="50" rx="5" fill="url(#msnbcGrad2)" />
+<text x="150" y="210" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold" text-anchor="middle">MSNBC</text>
+
+<!-- Cloud Scheduler -->
+<rect x="70" y="250" width="160" height="40" rx="5" fill="url(#gcpGrad)" />
+<text x="150" y="275" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Cloud Scheduler</text>
+<text x="150" y="305" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">(Hourly Trigger)</text>
+
+<!-- Cloud Functions -->
+<rect x="70" y="320" width="160" height="40" rx="5" fill="url(#gcpGrad)" />
+<text x="150" y="345" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Cloud Functions</text>
+<text x="150" y="375" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">(Python Scraper)</text>
+
+<!-- Cloud Storage -->
+<rect x="70" y="390" width="160" height="40" rx="5" fill="url(#gcpGrad)" />
+<text x="150" y="415" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Cloud Storage</text>
+</g>
+
+<!-- Arrow 1 -->
+<line x1="260" y1="250" x2="340" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5,5" />
+
+<!-- Phase 2: Processor -->
+<g>
+<rect x="350" y="70" width="200" height="380" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" filter="url(#shadow2)" />
+<text x="450" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">2. PROCESSOR</text>
+
+<!-- Processing steps -->
+<rect x="370" y="120" width="160" height="35" rx="5" fill="#f1f3f5" stroke="#adb5bd" />
+<text x="450" y="143" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle">Create Embeddings</text>
+
+<rect x="370" y="165" width="160" height="35" rx="5" fill="#f1f3f5" stroke="#adb5bd" />
+<text x="450" y="188" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle">Cluster Stories</text>
+
+<rect x="370" y="210" width="160" height="35" rx="5" fill="#f1f3f5" stroke="#adb5bd" />
+<text x="450" y="233" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle">Prioritize Matches</text>
+
+<rect x="370" y="255" width="160" height="35" rx="5" fill="#f1f3f5" stroke="#adb5bd" />
+<text x="450" y="278" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle">Generate Summaries</text>
+
+<!-- APIs -->
+<rect x="370" y="310" width="160" height="40" rx="5" fill="#ffd43b" />
+<text x="450" y="335" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle" font-weight="bold">Anthropic API</text>
+
+<rect x="370" y="360" width="160" height="40" rx="5" fill="#94d82d" />
+<text x="450" y="385" font-family="Arial, sans-serif" font-size="12" fill="#495057" text-anchor="middle" font-weight="bold">Hugging Face</text>
+
+<!-- Cloud Storage -->
+<rect x="370" y="410" width="160" height="30" rx="5" fill="url(#gcpGrad)" />
+<text x="450" y="430" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Cloud Storage</text>
+</g>
+
+<!-- Arrow 2 -->
+<line x1="560" y1="250" x2="640" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5,5" />
+
+<!-- Phase 3: Editor + Publishing -->
+<g>
+<rect x="650" y="70" width="200" height="380" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" filter="url(#shadow2)" />
+<text x="750" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3748" text-anchor="middle">3. PUBLISH</text>
+
+<!-- Editor UI -->
+<rect x="670" y="120" width="160" height="80" rx="5" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" />
+<text x="750" y="150" font-family="Arial, sans-serif" font-size="13" fill="#1976d2" text-anchor="middle" font-weight="bold">Custom Editor UI</text>
+<text x="750" y="170" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">Review & Edit</text>
+<text x="750" y="190" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">(~10 min/day)</text>
+
+<!-- Manual step indicator -->
+<circle cx="750" cy="240" r="20" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="2" />
+<text x="750" y="245" font-family="Arial, sans-serif" font-size="16" fill="#f39c12" text-anchor="middle" font-weight="bold">✋</text>
+<text x="750" y="270" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">Manual Review</text>
+
+<!-- Beehiiv -->
+<rect x="670" y="300" width="160" height="60" rx="5" fill="#8e44ad" />
+<text x="750" y="335" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Beehiiv</text>
+<text x="750" y="350" font-family="Arial, sans-serif" font-size="11" fill="#e8d5f2" text-anchor="middle">(Newsletter Platform)</text>
+
+<!-- Subscribers -->
+<rect x="670" y="380" width="160" height="50" rx="5" fill="#27ae60" />
+<text x="750" y="410" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">📧 Subscribers</text>
+</g>
+
+<!-- Bottom labels -->
+<text x="150" y="475" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Automated</text>
+<text x="450" y="475" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Automated</text>
+<text x="750" y="475" font-family="Arial, sans-serif" font-size="12" fill="#868e96" text-anchor="middle">Manual + Automated</text>
+</svg>
+</div>
 
 ---
 
