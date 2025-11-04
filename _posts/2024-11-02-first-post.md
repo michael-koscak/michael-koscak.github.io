@@ -614,7 +614,7 @@ function showPrompt(type) {
 Alright so now we have a newsletter.  The generator usually is pretty good but needs manual review.  The output is raw HTML so I needed a way to quickly make edits since I plan to send this most weekdays.  A bit of upfront work saves time every day on this, so I built a UI that allows me to quickly make edits to the letter, which you can see below:
 
 <p align="center">
-  <img src="/assets/images/firstpost/echo-editor.png" alt="Editor UI" width="400"><br>
+  <img src="/assets/images/firstpost/echo-editor.png" alt="Editor UI" width="600"><br>
   <span style="font-size: 0.9em; color: #666;">
     Editor UI I built to easily modify the HTML
   </span>
