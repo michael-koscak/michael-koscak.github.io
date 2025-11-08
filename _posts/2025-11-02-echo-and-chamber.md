@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Echo & Chamber - How It Works"
-date: 2024-11-02
+date: 2025-11-02
 published: true
 ---
 
