@@ -2,9 +2,9 @@
 # Basic configuration for Jekyll on GitHub Pages
 
 # Site identity
-name: michael-koscak.github.io
-title: michael-koscak.github.io
-description: My Blog
+name: Mike Koscak's Blog
+title: Mike Koscak's Blog
+# description removed to hide tagline under the title
 url: 
 baseurl: ""
 
@@ -51,7 +51,7 @@ exclude:
 
 # SEO
 seo:
-  name: michael-koscak.github.io
+  name: Mike Koscak's Blog
   type: Blog
 
 # Feed
