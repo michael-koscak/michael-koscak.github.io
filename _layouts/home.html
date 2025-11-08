@@ -5,7 +5,7 @@ layout: default
 <section class="post-list">
   {% if site.posts and site.posts != empty %}
     {% for post in site.posts %}
-      {% unless post.published == false %}
+      {% unless post.published == false or post.draft == true %}
       <article class="post-item">
         <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <div class="post-meta">
