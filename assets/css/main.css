@@ -43,6 +43,9 @@ body {
   padding: 24px 0;
 }
 
+.branding { display: flex; align-items: center; gap: 10px; }
+.branding .site-logo { height: 28px; width: auto; border-radius: 4px; display: inline-block; }
+
 .branding .site-title {
   color: var(--text);
   text-decoration: none;
