@@ -7,6 +7,13 @@
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon_io/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon_io/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon_io/favicon-16x16.png' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/images/favicon_io/favicon.ico' | relative_url }}">
+    <link rel="manifest" href="{{ '/assets/images/favicon_io/site.webmanifest' | relative_url }}">
+    <meta name="theme-color" content="#ffffff">
     {% seo %}
   </head>
   <body>
