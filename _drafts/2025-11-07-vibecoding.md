@@ -68,23 +68,14 @@ Additionally as I build I also find myself asking Cursor to document what it bui
 
 ## 4. Practical Takeaways
 
-[Your condensed wisdom]
+Overall my takeaway is that non-developers are not going to thrive in a tool like Cursor.  I am sure pro-developers could talk about this a lot more than me, but my lense is a sales engineer who likes to stay up to date on tech & tinker with stuff.  For me it allows me to build more than I could ever imagine, but I know how to code.  I would definitely not say my software engineering skills are strong, but since I know enough about code architecture it allows me to build.
 
-Bullet ideas for actionable advice:
-- Your rules of thumb for when to use AI coding vs. traditional
-- Warning signs you're vibecoding yourself into a corner
-- Tools/practices that help maintain quality at speed
-- How to audit AI-generated code effectively
-- The "pause and architect" moments
-- Building kill switches and escape hatches
+The biggest callout that I'd have for these types of tools is it totally changes the paradigm of development and you need to actually practice.  A rockstar dev who is handed AI coding for the first time would also probably struggle for a bit.  Most of the workflow does wind up becoming specific to your individual preference and can't generalize, so you won't get good unless you just actually spend time doing it.
 
 ## Conclusion
 
-[Your wrap-up thoughts]
+For me as an Engineer using AI has been incredible.  Something that has also been top of mind for me lately is all the AI doomerism in the news - ridiculous $$ amounts being thrown around in circular patterns and fear of a bubble.  I do oftentimes find myself talking about my work to non-tech people and I can sense skepticism of it, people are afraid of job loss and environmental issues from crazy AI datacenter builds.
 
-Bullet ideas:
-- What you'd tell yourself 6 months ago
-- How vibecoding has changed your development approach overall
-- The balance you've found
-- What you're still figuring out
-- Call to action or question for readers
+I don't diminish those concerns, they are real problems.  But I do think for folks not in the tech industry they see a ton of AI slop being created, issues with deepfakes, and generally have a negative perception of the tech.  I hope that as an industry tech people can figure this out and move away from greed and promote the good use cases like using AI to engineer better.  I get super excited when I'm able to build something cool and hope to convey how much awesome stuff the world can build with this tech, but there is absolutely a balance with the harmful use cases as well.
+
+If you made it to the end, thanks for reading!
