@@ -21,10 +21,10 @@ What's up - thanks for reading my first blog post. I wanted a place to talk abou
 <li><a href="#part-1-crawler">Part 1: Crawler</a></li>
 <li><a href="#part-2-processor">Part 2: Processor</a>
 <ul>
-<li><a href="#article-embeddings">Article Embeddings</a></li>
-<li><a href="#clustering">Clustering</a></li>
-<li><a href="#story-prioritization">Story Prioritization</a></li>
-<li><a href="#story-generation">Story Generation</a></li>
+<li><span>Article Embeddings</span></li>
+<li><span>Clustering</span></li>
+<li><span>Story Prioritization</span></li>
+<li><span>Story Generation</span></li>
 </ul>
 </li>
 <li><a href="#part-3-editing--publishing">Part 3: Editing + Publishing</a></li>
