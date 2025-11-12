@@ -5,7 +5,7 @@ date: 2025-11-02
 published: true
 ---
 
-What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.  If you are curious about the newsletter I added the most recent issue to the homepage so you can see what it is without sharing your email.
+What's up - thanks for reading my first blog post. I wanted a place to talk about some of the tech stuff and other things I work on & so this blog was born. This first post is a summary of the [Echo & Chamber](https://echoandchamber.com) project I work on that came from my research project at Georgia Tech.  If you are curious about the newsletter I added the most recent issue to the homepage so you can see what it is without sharing your email (or you could subscribe 😀).
 
 <p align="center">
   <img src="/assets/images/firstpost/echo-chamber-logo.svg" alt="EC Logo" width="400">
