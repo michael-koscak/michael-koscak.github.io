@@ -631,4 +631,6 @@ My publishing platform is Beehiiv which overall has been great except they don't
 
 Overall this has been a fun project and I learned a lot, hopefully you enjoyed reading about it.  The next learning for me here is how to market the idea without spending money.  For my next post I plan to talk about some of what I learned using AI coding tools.  Could certainly have gone way deeper here but this is long enough as it is, thanks for reading!!
 
+[Echo & Chamber](https://echoandchamber.com)
+
 - Mike
