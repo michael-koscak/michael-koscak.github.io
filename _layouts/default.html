@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#ffffff">
     {% seo %}
   </head>
-  <body>
+  <body class="{% if page.path contains '.md' %}md-page{% endif %}">
     <header class="site-header" role="banner">
       {% include header.html %}
     </header>
@@ -26,6 +26,19 @@
     <footer class="site-footer" role="contentinfo">
       {% include footer.html %}
     </footer>
+    <script>
+      (function () {
+        var links = document.querySelectorAll('.post-content a, body.md-page #content a');
+        links.forEach(function (a) {
+          a.setAttribute('target', '_blank');
+          var href = a.getAttribute('href') || '';
+          if (/^(https?:)?\/\//.test(href)) {
+            var rel = (a.getAttribute('rel') || '') + ' noopener noreferrer';
+            a.setAttribute('rel', rel.trim());
+          }
+        });
+      })();
+    </script>
   </body>
   </html>
 
